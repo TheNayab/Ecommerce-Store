@@ -1,0 +1,47 @@
+﻿
+.middle {
+    width: 30%;
+    margin: auto;
+    border: 2px solid green;
+    border-radius:10px;
+    padding: 2rem;
+    
+}
+.main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main2 {
+    display: flex;
+    justify-content: center;
+}
+.nav-item .nav-link{
+    cursor:pointer;
+}
+table{
+    width:80%;
+    border-radius:10px;
+    margin-top:3rem;
+    border:3px solid green;
+}
+table tr th {
+    border: 2px solid green;
+    height:2rem;
+}
+table tr th {
+    border: 1px solid green;
+    height:2rem;
+
+}
+table tr td {
+    border: 2px solid green;
+    height:3rem;
+}
+.edit{
+    width:4rem;
+}
+.delete{
+    width:4rem;
+}
