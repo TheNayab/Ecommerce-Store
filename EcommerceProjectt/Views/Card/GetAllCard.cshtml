@@ -29,9 +29,9 @@
                 </li>
 
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form action="GetAllCard" method="post" class="d-flex">
+                <input class="form-control me-2" type="search" name="SearchString" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
         </div>
     </div>
@@ -54,12 +54,14 @@
             {
                 foreach(var Data in Model)
                 {
+                <tr>
                     <td>@Data.Id</td>
-                    <td>Image</td>
+                    <td class="picture">   <img src="@Url.Content(Data.ImagePath)" height="100vh" width="100%" alt="" /> </td>
                     <td>@Data.Name</td>
                     <td>@Data.Description</td>
                     <td>E</td>
                     <td>D</td>
+                </tr>
                 }
             }
         }

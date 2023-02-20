@@ -1,6 +1,6 @@
 ﻿
 .middle {
-    width: 30%;
+    width: 50%;
     margin: auto;
     border: 2px solid green;
     border-radius:10px;
@@ -35,6 +35,9 @@ table tr th {
     height:2rem;
 
 }
+table tr .picture {
+        width:12rem;
+    }
 table tr td {
     border: 2px solid green;
     height:3rem;
@@ -44,4 +47,14 @@ table tr td {
 }
 .delete{
     width:4rem;
+}
+.btnn {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    border: 1px solid white;
+    border-radius: 2rem;
+    justify-content: center;
+    height: 2.5rem;
+    align-items: center;
 }

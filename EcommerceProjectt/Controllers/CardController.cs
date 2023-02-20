@@ -45,8 +45,9 @@ namespace EcommerceProjectt.Controllers
                 {
                     if (cmd1.ExecuteNonQuery() == 1)
                     {
+                        Response.Write("<script>alert('Data Inserted...');</script>");
                         conn.Close();
-                        ViewBag.Msg = "Data Inserted ...";
+                        return RedirectToAction("GetAllCard", "Card");
                     }
                     else
                     {
@@ -102,11 +103,69 @@ namespace EcommerceProjectt.Controllers
         
 
         
-        public ActionResult GetAllCard()
+        public ActionResult GetAllCard(string SearchString="")
         {
-            fetchData();
-            return View(cards);
+            if (SearchString == " " || SearchString == "  " || SearchString == "   " || SearchString == "" || SearchString == null)
+            {
+                fetchData();
+                return View(cards);
+            }
+            else
+            {
+                search(SearchString);
+                return View(cards);
+            }
+
         }
+        public void search(string SearchString)
+        {
+                if (cards.Count > 0)
+                {
+                    cards.Clear();
+                }
+                MySqlConnection connection = new MySqlConnection(DBConnection.conString);
+                string a = Account.Id2;
+                connection.Open();
+                string Query = "Select card.Id,card.ImagePath,card.Name,card.Description,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where '" + a + "'=card.MercantId and card.Name='" + SearchString + "'";
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = Query;
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Card card = new Card();
+                    card.Id = reader.GetInt32("Id");
+                    card.Name = reader.GetString("Name");
+                    card.Description = reader.GetString("Description");
+                    card.Price = reader.GetInt32("Price");
+                    card.ImagePath = reader.GetString("ImagePath");
+                    cards.Add(card);
+                }
+                connection.Close();
+        }
+   /*     [HttpPost]
+        public ActionResult SearchData()
+        {
+            MySqlConnection conn = new MySqlConnection(DBConnection.conString);
+
+            string a = Account.Id2;
+            conn.Open();
+            string Query = "Select card.Id,card.ImagePath,card.Name,card.Description,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where '" + a + "'=card.MercantId";
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = Query;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Card card = new Card();
+                card.Id = reader.GetInt32("Id");
+                card.Name = reader.GetString("Name");
+                card.Description = reader.GetString("Description");
+                card.Price = reader.GetInt32("Price");
+                card.ImagePath = reader.GetString("ImagePath");
+                cards.Add(card);
+            }
+            conn.Close();
+            return View();
+        }*/
         private void fetchData()
         {
            
@@ -115,8 +174,10 @@ namespace EcommerceProjectt.Controllers
                 cards.Clear();
             }
             MySqlConnection conn = new MySqlConnection(DBConnection.conString);
+
+            string a = Account.Id2;
             conn.Open();
-            string Query = "Select card.Id,card.ImagePath,card.Name,card.Description,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where card.MercantId=merchantcredentials.Email";
+            string Query = "Select card.Id,card.ImagePath,card.Name,card.Description,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where '"+a+"'=card.MercantId";
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = Query;
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -132,6 +193,8 @@ namespace EcommerceProjectt.Controllers
             }
             conn.Close();
         }
+
+
 
     }
 }

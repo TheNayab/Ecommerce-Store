@@ -1,6 +1,5 @@
 ﻿using EcommerceProjectt.Models;
 using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crypto.Tls;
 using Renci.SshNet.Security.Cryptography;
 using System;
 using System.Collections;
@@ -41,7 +40,7 @@ namespace EcommerceProjectt.Controllers
                 }
                 else
                 {
-                    ViewBag.Error = "Invalid Email or Password ...";
+                    Response.Write("<script>alert('Invalid Username and Password');</script>");
                     ModelState.Clear();
                 }
             }
@@ -61,7 +60,7 @@ namespace EcommerceProjectt.Controllers
                 }
                 else
                 {
-                    ViewBag.Error = "Invalid Email or Password...";
+                    Response.Write("<script>alert('Invalid Username and Password');</script>");
                     ModelState.Clear();
                 }
             }
@@ -91,7 +90,7 @@ namespace EcommerceProjectt.Controllers
                 {
                     conn1.Clone();
 
-                    ViewBag.Error = "This Email is already exists";
+                    Response.Write("<script>alert('This Email is already Exits ...');</script>");
                     ModelState.Clear();
 
                 }
@@ -113,13 +112,13 @@ namespace EcommerceProjectt.Controllers
                         else
                         {
                             conn.Close();
-                            ViewBag.Error2 = "Please Fill valid values";
+                            Response.Write("<script>alert('Please Fill valid values...');</script>");
                             ModelState.Clear();
                         }
                     }
                     catch (Exception ex)
                     {
-                        ViewBag.Error3 = "Please Fill valid values" + ex;
+                        ViewBag.Error3 = "An Unexpected Error Occur " + ex;
                         ModelState.Clear();
                     }
 
@@ -137,7 +136,7 @@ namespace EcommerceProjectt.Controllers
                 {
                     conn1.Clone();
 
-                    ViewBag.Error = "This Email is already exists";
+                    Response.Write("<script>alert('This Email is already Exits ...');</script>");
                     ModelState.Clear();
 
                 }
@@ -160,13 +159,13 @@ namespace EcommerceProjectt.Controllers
                         else
                         {
                             conn.Close();
-                            ViewBag.Error2 = "Please Fill valid values";
+                            Response.Write("<script>alert('Please Fill valid values...');</script>");
                             ModelState.Clear();
                         }
                     }
                     catch (Exception ex)
                     {
-                        ViewBag.Error3 = "Please Fill valid values" + ex;
+                        ViewBag.Error3 = "An Unexpected Error Occur " + ex;
                         ModelState.Clear();
                     }
 

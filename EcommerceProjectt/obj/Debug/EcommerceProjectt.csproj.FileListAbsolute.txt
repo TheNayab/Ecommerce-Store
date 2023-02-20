@@ -70,7 +70,6 @@ C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\obj\Debug\Ecomme
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\obj\Debug\EcommerceProjectt.csproj.CopyComplete
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\obj\Debug\EcommerceProjectt.dll
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\obj\Debug\EcommerceProjectt.pdb
-C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\bin\BouncyCastle.Crypto.dll
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\bin\Google.Protobuf.dll
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\bin\K4os.Compression.LZ4.dll
 C:\Users\Nayab\source\repos\EcommerceProjectt\EcommerceProjectt\bin\K4os.Compression.LZ4.Streams.dll

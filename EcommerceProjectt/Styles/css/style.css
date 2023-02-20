@@ -154,6 +154,20 @@ form{
 #Select1 {
 	border: none;
 	outline: none;
+	font-size: 1.2rem;
+	color: #766d6d;
+	font-family: 'poppins', sans-serif;
+	margin-left: 6px;
+}
+#Select2 {
+	border: none;
+	outline: none;
+	font-size: 1.2rem;
+	color: #766d6d;
+	font-family: 'poppins', sans-serif;
+	width: 100%;
+	margin-left: 10px;
+	margin-top: 6px;
 }
 
 .input-div.pass {
