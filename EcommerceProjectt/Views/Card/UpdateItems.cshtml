@@ -1,11 +1,9 @@
-﻿
-@{
-    ViewBag.Title = "AddItems";
+﻿@{
+    ViewBag.Title = "UpdateItems";
     Layout = "~/Views/_LayoutPage2.cshtml";
 
+
 }
-
-
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
@@ -21,42 +19,30 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='"+Url.Action("AddCard","Card")+"'")">Add-Items</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllInstallmets", "Card") + "'")">All-Installmets</a>
-                </li>
+
             </ul>
         </div>
     </div>
 </nav>
-<h2>
-    @ViewBag.Msg
-    @ViewBag.Error2
-    @ViewBag.Error3
-</h2>
 
-@using (Html.BeginForm("AddCard", "Card", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+@using (Html.BeginForm("UpdateItems", "Card", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="main">
         <div class="middle">
             <form>
                 <div class="mb-3">
                     <label class="form-label">Name</label>
-                    <input type="text" name="Name" class="form-control" required="">
+                    <input type="text" name="Name"  class="form-control" required="">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                    <textarea class="form-control" name="Description" required="" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea class="form-control" name="Description" required="" id="exampleFormControlTextarea1" rows="4">
+</textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Price</label>
                     <input type="number" name="Price" required="" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Quantity</label>
-                    <input type="number" name="Quantity" required="" class="form-control">
                 </div>
                 <div class="mb-3">
                     <input type="file" name="ImagePath" required="" class="form-control">

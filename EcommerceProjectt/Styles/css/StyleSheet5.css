@@ -1,0 +1,28 @@
+﻿
+.middle {
+    width: 50%;
+    margin: auto;
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.main {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#yourinstall {
+    border: none;
+    width: 0.9rem;
+    font-weight: bold;
+}
+#refre{
+    visibility:hidden;
+}
+#totpr {
+    border: none;
+    width: 4rem;
+    font-weight: bold;
+}

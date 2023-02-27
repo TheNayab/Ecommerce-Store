@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "InstallmentResponce";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+    string[] TableHeader = new string[]
+{
+        "Image",
+        "Product",
+        "Price",
+        "Name",
+        "Address",
+        "PostalCode",
+        "Total Installments",
+        "PerInstallment",
+        "Responce"
+                                   };
+}
+
+<div class="header">
+    <img src="~/img/logoo.png" class="logo">
+    <nav>
+        <ul>
+            <li><a href="GetAllClientCard">Home</a></li>
+            <li><a href="AllProducts">Products</a></li>
+            <li><a href="InstallmentResponce">Installment-Response</a></li>
+        </ul>
+    </nav>
+    <button class="btn" id="btn1">Log In</button>
+    <button class="btn" id="btn2">Sign Up</button>
+</div>
+
+<div class="main2">
+    <table>
+        <tr>
+            @{
+                foreach (var head in TableHeader)
+                {
+                    <th>
+                        @head
+                    </th>
+                }
+            }
+        </tr>
+        @{
+            if (Model != null)
+            {
+                foreach (var Data in Model)
+                {
+                    <tr>
+                        <td class="picture">   <img src="@Url.Content(Data.Img)" height="100vh" width="80%" alt="" /> </td>
+                        <td>@Data.NameOfProduct</td>
+                        <td>@Data.PriceOfProduct</td>
+                        <td class="quantity">@Data.Fname</td>
+                        <td class="quantity">@Data.Address</td>
+                        <td class="quantity">@Data.PostalCode</td>
+                        <td class="quantity">@Data.intallments</td>
+                        <td class="quantity">@Data.totalinstall</td>
+                        <td> your Application for Installment is <b> <input class="dfd" readonly="" placeholder="Reply Soon " value="@Data.Confirm" /> </b> </td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+</div>
+<script type="text/javascript" src="~/js/main2.js"></script>

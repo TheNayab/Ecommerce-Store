@@ -1,18 +1,19 @@
-﻿
-@{
-    ViewBag.Title = "AllItems";
+﻿@{
+    ViewBag.Title = "AllMerOrders";
+
     Layout = "~/Views/_LayoutPage2.cshtml";
     string[] TableHeader = new string[]
     {
-        "Id",
         "Image",
+        "Product",
+        "Price",
         "Name",
-        "Description",
-        "Quantity",
-        "Edit",
-        "Delete"
-    };
+        "Address",
+        "City",
+        "State",
+                    };
 }
+<h2>AllMerOrders</h2>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
@@ -31,9 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllInstallmets", "Card") + "'")">All-Installmets</a>
-                </li>
+
             </ul>
             <form action="GetAllCard" method="post" class="d-flex">
                 <input class="form-control me-2" type="search" name="SearchString" placeholder="Search" aria-label="Search">
@@ -41,7 +40,7 @@
             </form>
             <div class="logout">
 
-                <a class="btn btn-danger active"  aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Will design</a>
+                <a class="btn btn-danger active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Will design</a>
 
             </div>
         </div>
@@ -52,28 +51,28 @@
     <table>
         <tr>
             @{
-              foreach(var head in TableHeader)
-            {
-                <th>
-                    @head
-                </th>
-            }
+                foreach (var head in TableHeader)
+                {
+                    <th>
+                        @head
+                    </th>
+                }
             }
         </tr>
         @{
-            if(Model != null)
+            if (Model != null)
             {
-                foreach(var Data in Model)
+                foreach (var Data in Model)
                 {
-                <tr>
-                    <td>@Data.Id</td>
-                    <td class="picture">   <img src="@Url.Content(Data.ImagePath)" height="100vh" width="80%" alt="" /> </td>
-                    <td>@Data.Name</td>
-                    <td>@Data.Description</td>
-                    <td class="quantity">@Data.Quantity</td>
-                    <td class="edit">@Html.ActionLink("Edit", "UpdateItems", "Card", new { UpId = Data.Id }, null)</td>
-                    <td class="delete">@Html.ActionLink("Delete", "DeleteItems", "Card", new { DelId = Data.Id }, null)</td>
-                </tr>
+                    <tr>
+                        <td class="picture">   <img src="@Url.Content(Data.Img)" height="100vh" width="80%" alt="" /> </td>
+                        <td>@Data.NameOfProduct</td>
+                        <td>@Data.PriceOfProduct</td>
+                        <td class="quantity">@Data.Fname</td>
+                        <td class="quantity">@Data.Address</td>
+                        <td class="quantity">@Data.City</td>
+                        <td class="quantity">@Data.State</td>
+                    </tr>
                 }
             }
         }

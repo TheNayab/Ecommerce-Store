@@ -13,5 +13,9 @@ namespace EcommerceProjectt.Models
         public int Price { get; set; }
         public string ImagePath { get; set; }
         public string MerchantId { get; set; }
+        public int Quantity { get; set; }
+        public static int Total { get; set; }
+        public  int Increment { get; set; }
+        public string PayNow { get; set; }
     }
 }

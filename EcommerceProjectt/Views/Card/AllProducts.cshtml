@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "AllProducts";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+
+}
+<div class="header">
+    <img src="~/img/logoo.png" class="logo">
+
+    <nav>
+        <ul>
+                <li><a href="GetAllClientCard">Home</a></li>
+                <li><a href="AllProducts">Products</a></li>
+                <li><a href="InstallmentResponce">Installment-Response</a></li>
+        </ul>
+    </nav>
+    <button class="btn" id="btn1">Log In</button>
+    <button class="btn" id="btn2">Sign Up</button>
+</div>
+
+
+
+
+<ul class="cards">
+
+    @{
+        if (Model != null)
+        {
+            foreach (var Data in Model)
+            {
+
+        <li>
+            <a href="ProductDetail?PId=@Data.Id" name="PId" class="card">
+                <img src="@Url.Content(Data.ImagePath)" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                        <div class="card__header-text">
+                            <h3 class="card__title">@Data.Name</h3>
+                            <b>
+                                <h3 class="card__Price">Price: $@Data.Price</h3>
+                            </b>
+                        </div>
+                    </div>
+                    <p class="card__description">@Data.Description</p>
+                </div>
+            </a>
+        </li>
+            }
+
+        }
+    }
+
+</ul>

@@ -9,6 +9,7 @@ namespace EcommerceProjectt.Models
     {
         public string Select { get; set; }
         public static  string Id2 { get; set; } 
+        public static  int Id3 { get; set; } 
         public  int Id { get; set; } 
         public string Fname { get; set; }
         public string Lname { get; set; }

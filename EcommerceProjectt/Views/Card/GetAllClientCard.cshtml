@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "GetAllClientCard";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+
+}
+<div class="container">
+    <div class="header">
+        <img src="~/img/logoo.png" class="logo">
+        <nav>
+            <ul>
+                <li><a href="GetAllClientCard">Home</a></li>
+                <li><a href="AllProducts">Products</a></li>
+                <li><a href="InstallmentResponce">Installment-Response</a></li>
+            </ul>
+        </nav>
+        <form action="GetAllCard" method="post" class="d-flex">
+            <input class="form me-2" type="search" name="SearchString" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+    </div>
+    <div class="content">
+        <div class="text">
+            <h1>DISCOVER & SHOP <br> <span>THE TREND</span></h1>
+            <p>
+                Effortlessly plan, organize,schedule and deliver your social<br>content and campaigns with Sprout's powerful   <br>shoping app.
+            </p>
+            <button class="btn3">Buy Now</button>
+        </div>
+        <div class="pepsi">
+            <img src="~/img/Online shopping.gif" alt="">
+        </div>
+    </div>
+</div>
+
+
+<ul class="cards">
+
+    @{
+        if (Model != null)
+        {
+            foreach (var Data in Model)
+            {
+               
+                <li>
+                        <a href="ProductDetail?PId=@Data.Id" class="card">
+                            <img src="@Url.Content(Data.ImagePath)" class="card__image" alt="" />
+                            <div class="card__overlay">
+                                <div class="card__header">
+                                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                                    <div class="card__header-text">
+                                        <h3 class="card__title">@Data.Name</h3>
+                                        <b>
+                                            <h3 class="card__Price">$@Data.Price</h3>
+                                        </b>
+
+                                    </div>
+                                </div>
+                                <p class="card__description">@Data.Description</p>
+                            </div>
+                        </a>
+                </li>
+            }
+
+        }
+    }
+
+</ul>

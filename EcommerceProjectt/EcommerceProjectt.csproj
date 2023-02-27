@@ -195,11 +195,21 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="img\avatar.svg" />
+    <Content Include="img\bg.png" />
     <Content Include="img\bg.svg" />
+    <Content Include="img\download %281%29.jfif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logoo.png" />
+    <Content Include="img\Online shopping.gif" />
+    <Content Include="img\pepsi.png" />
     <Content Include="img\wave.png" />
     <Content Include="js\main.js" />
+    <Content Include="js\main2.js" />
     <Content Include="Styles\css\style.css" />
     <Content Include="Styles\css\stylesheet2.css" />
+    <Content Include="Styles\css\StyleSheet3.css" />
+    <Content Include="Styles\css\StyleSheet4.css" />
+    <Content Include="Styles\css\StyleSheet5.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +221,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\BuyNow.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,6 +237,19 @@
     <Content Include="Views\Account\AsAMerchant.cshtml" />
     <Content Include="Views\Card\AddCard.cshtml" />
     <Content Include="Views\Card\GetAllCard.cshtml" />
+    <Content Include="Views\Card\UpdateItems.cshtml" />
+    <Content Include="Views\Card\GetAllClientCard.cshtml" />
+    <Content Include="Views\_LayoutPage3.cshtml" />
+    <Content Include="Views\Card\AllProducts.cshtml" />
+    <Content Include="Views\Card\ProductDetail.cshtml" />
+    <Content Include="Views\_LayoutPage4.cshtml" />
+    <Content Include="Views\Card\Order.cshtml" />
+    <Content Include="Views\Card\BuyNow.cshtml" />
+    <Content Include="Views\Card\AllMerOrders.cshtml" />
+    <Content Include="Views\Card\InstallementPlan.cshtml" />
+    <Content Include="Views\_LayoutPage5.cshtml" />
+    <Content Include="Views\Card\AllInstallmets.cshtml" />
+    <Content Include="Views\Card\InstallmentResponce.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+
+}
+<div class="header">
+    <img src="~/img/logoo.png" class="logo">
+
+    <nav>
+        <ul>
+            <li><a href="GetAllClientCard">Home</a></li>
+            <li><a href="AllProducts">Products</a></li>
+            <li><a href="InstallmentResponce">Installment-Response</a></li>
+        </ul>
+    </nav>
+    <button class="btn" id="btn1">Log In</button>
+    <button class="btn" id="btn2">Sign Up</button>
+</div>
+
+<div class="main2">
+   
+
+    <table>
+        <form action="Order" method="post">
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                    <tr>
+                        <td class="picture">   <img src="@Url.Content(Data.ImagePath)" height="100vh" width="80%" alt="" /> </td>
+                        <td class="namee" name="Name">@Data.Name</td>
+                        <td>@Data.Description</td>
+                        <td class="quantity" name="Price">Price: @Data.Price</td>
+                    </tr>
+                    <tr>
+                        <td class="picture">   </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input id="qtyshow" value=" @Data.Quantity" hidden="" />
+                            <div class="maini">
+                                <p class="qqty">Quantity: </p>
+                                <div class="Contain">
+                                    <a id="minus" onclick="Sub()">-</a>
+                                    <input id="where" name="where" type="text" readonly="" value="1" />
+                                    <a id="plus" onclick="Add()">+</a>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="picture">   </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class=" tot">
+                                <input id="price" value="@Data.Price" hidden="" />
+                                <p class="total"> Total: </p>
+                                <input id="multi" name="Quantity" value="@Data.Price" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="picture">   </td>
+                        <td></td>
+                        <td></td>
+                        <td class="btns">
+                            @*                            <a href="BuyNow" type="submit" name="PayNow" class="payNow">Pay Now</a>
+                            *@
+                            <input type="submit" name="PayNow" class="Installment" value="Pay Now">
+                            <input type="submit" class="Installment" value="Apply for Installment">
+
+                        </td>
+                    </tr>
+                }
+            }
+            }
+            </form>
+
+        </table>
+
+</div>
+<script type="text/javascript" src="~/js/main2.js"></script>

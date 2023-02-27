@@ -20,28 +20,63 @@
 .nav-item .nav-link{
     cursor:pointer;
 }
-table{
-    width:80%;
-    border-radius:10px;
-    margin-top:3rem;
-    border:3px solid green;
+table {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 3rem;
+    border-top: 2px solid #857e7e;
 }
-table tr th {
-    border: 2px solid green;
-    height:2rem;
-}
-table tr th {
-    border: 1px solid green;
-    height:2rem;
 
-}
 table tr .picture {
         width:12rem;
     }
-table tr td {
-    border: 2px solid green;
-    height:3rem;
-}
+    table tr td {
+        border-top: 2px solid #cbcbd1;
+        height: 3rem;
+        margin-top: 1rem;
+    }
+table tr  {
+        padding-top:7px;
+        padding-bottom:7px
+    }
+table tr .delete a {
+        text-decoration: none;
+        background-color: tomato;
+        color: white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        border-radius: 9px;
+        height: 2.5rem;
+        align-items: center;
+    }
+    table tr .delete a:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid tomato;
+    }
+table tr .delete  {
+         width:7rem;
+    }
+table tr .edit a {
+        text-decoration: none;
+        background-color: blue;
+        color: white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        border-radius: 9px;
+        height: 2.5rem;
+        align-items: center;
+    }
+    table tr .edit a:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid blue;
+    }
+table tr .edit  {
+         width:11rem;
+    }
 .edit{
     width:4rem;
 }
@@ -57,4 +92,188 @@ table tr td {
     justify-content: center;
     height: 2.5rem;
     align-items: center;
+}
+.navbar{
+    height:4.5rem;
+}
+.logout{
+    border:2px solid white;
+    margin-left:2rem;
+}
+.quantity{
+    width:13rem;
+    font-weight:bold;
+}
+
+.maini {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.Contain {
+    display: flex;
+    height: 3rem;
+}
+
+    .Contain #minus {
+        background-color: tomato;
+        color: white;
+        padding: 1rem;
+        width: 3rem;
+        border: none;
+        border-radius: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        cursor:pointer;
+    }
+
+        .Contain #minus:hover {
+            box-shadow: 5px 10px 10px #ccc;
+        }
+
+    .Contain input {
+        padding: 0.7rem;
+        width: 5rem;
+        font: 400 1.3rem "Roboto";
+        border: none;
+        text-align: center;
+        border-radius: 9px;
+    }
+    .Contain #plus {
+        background-color: tomato;
+        color: white;
+        padding: 1rem;
+        width: 3rem;
+        border: none;
+        border-radius: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        cursor:pointer;
+    }
+
+        .Contain #plus:hover {
+            box-shadow: 5px 10px 10px #ccc;
+        }
+
+    .Contain input {
+        padding: 0.7rem;
+        width: 5rem;
+        font: 400 1.3rem "Roboto";
+        border: none;
+        text-align: center;
+        border-radius: 9px;
+    }
+.qqty {
+    font-weight: bold;
+    margin-top: 11px;
+    margin-right: 24px;
+}
+.tot{
+    display:flex;
+
+}
+.total {
+    font-weight: bold;
+    margin-top: 17px;
+    margin-right: 117px
+}
+#multi {
+    border: none;
+    font-weight: bold;
+}
+.payNow {
+    background-color: tomato;
+    border: 1px solid white;
+    width: 11rem;
+    height: 2.8rem;
+    color: white;
+    border-radius: 0.7rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+    .payNow:hover {
+        background-color: white;
+        border: 2px solid tomato;
+        color: tomato;
+    }
+.Installment {
+    background-color: tomato;
+    border: 1px solid white;
+    width: 11rem;
+    height: 2.8rem;
+    color: white;
+    border-radius: 0.7rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+    .Installment:hover {
+        background-color: white;
+        border: 2px solid tomato;
+        color:tomato;
+    }
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1px;
+}
+.namee{
+    font-weight:bold;
+}
+
+.header {
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+}
+.header {
+    background-color: #48789b;
+    height: 5rem;
+}
+
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+nav {
+    flex: 1;
+    padding-left: 450px;
+}
+
+    nav ul li {
+        display: inline-block;
+        list-style: none;
+        margin: 0 15px;
+    }
+    nav ul {
+      margin:0px;
+    }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 600;
+        }
+.dfd {
+    border: none;
+    font-weight: bold;
 }

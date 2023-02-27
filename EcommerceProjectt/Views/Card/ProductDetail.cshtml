@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/_LayoutPage4.cshtml";
+    Layout = "~/Views/_LayoutPage3.cshtml";
+}
+
+<div class="header">
+    <img src="~/img/logoo.png" class="logo">
+
+    <nav>
+        <ul>
+            <li><a href="GetAllClientCard">Home</a></li>
+            <li><a href="AllProducts">Products</a></li>
+            <li><a href="">Installment-Response</a></li>
+        </ul>
+    </nav>
+    <button class="btn" id="btn1">Log In</button>
+    <button class="btn" id="btn2">Sign Up</button>
+</div>
+@{
+    if (Model != null)
+    {
+        foreach (var Data in Model)
+        {
+            <main class="containerr">
+
+                <!-- Left Column / Headphones Image -->
+                <div class="left-column">
+                    <img src="@Url.Content(Data.ImagePath)" alt="" />
+                </div>
+
+
+                <!-- Right Column -->
+                <div class="right-column">
+
+                    <!-- Product Description -->
+                    <div class="product-description">
+                        <span>Our Store</span>
+
+                        <h1 class="headd">@Data.Name</h1>
+                        <p class="des">@Data.Description</p>
+                    </div>
+                    <div class="qtycenter">
+                        <p>Qty : </p>
+                        <input id="qtyshow" value=" @Data.Quantity" />
+                        <p class="stock" id="stock">In Stock</p>
+
+                    </div>
+                   
+
+                    <!-- Product Pricing -->
+                    <div class="product-price">
+                        <span>Price : $@Data.Price</span>
+                    </div>
+                    <a href="Order?OId=@Data.Id" class="cart-btn">Buy Now</a>
+
+
+                </div>
+
+            </main>
+        }
+    }
+}
+<script type="text/javascript" src="~/js/main2.js"></script>

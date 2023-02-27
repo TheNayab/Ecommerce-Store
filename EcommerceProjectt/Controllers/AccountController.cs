@@ -41,8 +41,10 @@ namespace EcommerceProjectt.Controllers
                 else
                 {
                     Response.Write("<script>alert('Invalid Username and Password');</script>");
-                    ModelState.Clear();
+                    ModelState.Clear(); 
+                    return View();
                 }
+
             }
 
             if (acc.Select == "Client")
@@ -54,15 +56,17 @@ namespace EcommerceProjectt.Controllers
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read() == true)
                 {
-                    Account.Id2 = reader.GetString("Email");
+                    Account.Id3 = reader.GetInt32("Id");
                     conn1.Clone();
-                    return View("Create");
+                    return RedirectToAction("GetAllClientCard", "Card");
                 }
                 else
                 {
                     Response.Write("<script>alert('Invalid Username and Password');</script>");
                     ModelState.Clear();
+                    return View();
                 }
+
             }
             return View();
 
