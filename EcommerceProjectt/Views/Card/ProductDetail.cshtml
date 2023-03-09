@@ -6,23 +6,37 @@
 }
 
 <div class="header">
-    <img src="~/img/logoo.png" class="logo">
+    <nav class="navbar fixed-top navbar-expand-lg  navbar-dark ">
+        <div class="container-fluid">
+            <img src="~/img/logoo.png" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " id="home" href="GetAllClientCard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link active " id="productss" href="AllProducts">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " id="instres" href="InstallmentResponce">Installment-Response</a>
+                    </li>
 
-    <nav>
-        <ul>
-            <li><a href="GetAllClientCard">Home</a></li>
-            <li><a href="AllProducts">Products</a></li>
-            <li><a href="">Installment-Response</a></li>
-        </ul>
+                </ul>
+                <div class="logout">
+                    <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
+                </div>
+            </div>
+        </div>
     </nav>
-    <button class="btn" id="btn1">Log In</button>
-    <button class="btn" id="btn2">Sign Up</button>
 </div>
 @{
-    if (Model != null)
-    {
-        foreach (var Data in Model)
-        {
+            if (Model != null)
+            { 
+                foreach (var Data in Model)
+                {
             <main class="containerr">
 
                 <!-- Left Column / Headphones Image -->
@@ -44,10 +58,10 @@
                     <div class="qtycenter">
                         <p>Qty : </p>
                         <input id="qtyshow" value=" @Data.Quantity" />
-                        <p class="stock" id="stock">In Stock</p>
-
+@*                        <p class="stock" id="stock">In Stock</p>
+*@
                     </div>
-                   
+
 
                     <!-- Product Pricing -->
                     <div class="product-price">
@@ -60,6 +74,6 @@
 
             </main>
         }
-    }
+}
 }
 <script type="text/javascript" src="~/js/main2.js"></script>

@@ -1,35 +1,55 @@
 ﻿
 .middle {
     width: 50%;
-    margin: auto;
-    border: 2px solid green;
-    border-radius:10px;
+    margin-left:5rem;
+    border: 2px solid #48789b;
+    border-radius: 10px;
     padding: 2rem;
-    
 }
 .main {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    height: 80vh;
+  
 }
 .main2 {
     display: flex;
-    justify-content: center;
+    flex-direction:row;
 }
 .nav-item .nav-link{
     cursor:pointer;
 }
+.Productheading {
+    font-size: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: black;
+}
+.byn img{
+height:47rem;
+}
 table {
-    width: 80%;
+    position: absolute;
+    left: 8px;
+    width: 65%;
     border-radius: 10px;
     margin-top: 3rem;
     border-top: 2px solid #857e7e;
+    margin-top: 6rem;
+}
+.table2 {
+    margin:auto;
+    width: 90%;
+    border-radius: 10px;
+    border-top: 2px solid #857e7e;
+    margin-top: 6rem;
 }
 
 table tr .picture {
-        width:12rem;
-    }
+    width: 12rem;
+}
     table tr td {
         border-top: 2px solid #cbcbd1;
         height: 3rem;
@@ -90,9 +110,17 @@ table tr .edit  {
     border: 1px solid white;
     border-radius: 2rem;
     justify-content: center;
-    height: 2.5rem;
+    height: 2.8rem;
     align-items: center;
+    margin-top: 2rem;
+    background-color: #48789b;
+    color:white;
 }
+    .btnn:hover {
+        transition:.5s;
+        width: 53%;
+        height: 3rem;
+    }
 .navbar{
     height:4.5rem;
 }
@@ -103,6 +131,7 @@ table tr .edit  {
 .quantity{
     width:13rem;
     font-weight:bold;
+    padding-left:2rem;
 }
 
 .maini {
@@ -172,6 +201,9 @@ table tr .edit  {
     margin-top: 11px;
     margin-right: 24px;
 }
+#qtyshow {
+    padding-left: 2rem;
+}
 .tot{
     display:flex;
 
@@ -188,7 +220,7 @@ table tr .edit  {
 .payNow {
     background-color: tomato;
     border: 1px solid white;
-    width: 11rem;
+    width:10rem;
     height: 2.8rem;
     color: white;
     border-radius: 0.7rem;
@@ -198,6 +230,7 @@ table tr .edit  {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+   
 }
     .payNow:hover {
         background-color: white;
@@ -216,6 +249,7 @@ table tr .edit  {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    margin-left: 4rem;
 }
     .Installment:hover {
         background-color: white;
@@ -228,8 +262,10 @@ table tr .edit  {
     justify-content: center;
     margin-top: -1px;
 }
-.namee{
-    font-weight:bold;
+.namee {
+    width: 8rem;
+    font-weight: bold;
+    padding-left: 1rem;
 }
 
 .header {
@@ -238,42 +274,158 @@ table tr .edit  {
     margin: auto;
     display: flex;
     align-items: center;
-
-}
-.header {
-    background-color: #48789b;
-    height: 5rem;
 }
 
 .logo {
     width: 80px;
     margin-top: 10px;
-    cursor: pointer;
+    margin-left: 3rem;
 }
 
-nav {
-    flex: 1;
-    padding-left: 450px;
+.navbar {
+    background-color: #48789b;
+    height: 5rem;
 }
 
-    nav ul li {
-        display: inline-block;
-        list-style: none;
-        margin: 0 15px;
-    }
-    nav ul {
-      margin:0px;
-    }
+.navbar-nav {
+    margin-left: 20rem;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            text-transform: uppercase;
-            font-size: 15px;
-            font-weight: 600;
-        }
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
 .dfd {
     border: none;
     font-weight: bold;
+}
+.delivery img{
+    position:absolute;
+    right:0;
+    top:9rem;
+}
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 3rem;
+}
+
+.navbar {
+    background-color: #48789b;
+    height: 5rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+}
+
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
+
+#produ {
+    border-radius: 12px;
+}
+
+
+#home {
+    display: flex;
+    width: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #home:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 4rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#productss {
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #productss:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#instres {
+    display: flex;
+    width: 11rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #instres:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 11rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+
+.btnlogout {
+    height: 2.3rem;
+    width: 5rem;
+    border: 2px solid white;
+    background-color: #48789b;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .btnlogout:hover {
+        transition: .5s;
+        height: 2.5rem;
+        width: 5.3rem;
+        color: #48789b;
+        background-color: white;
+    }  
+    .logout{
+        border:none;
+    }
+.descriptionss {
+    width: 30rem;
+    padding-left: 2rem;
 }

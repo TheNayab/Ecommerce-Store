@@ -41,7 +41,6 @@ namespace EcommerceProjectt.Controllers
                 MySqlConnection conn = new MySqlConnection(DBConnection.conString);
                 conn.Open();
 
-
                 card.MerchantId = Account.Id2;
                 string query = "INSERT INTO card VALUES('" + card.Id + "','" + card.Name + "','" + card.Description + "',+'" + card.Price + "','" + card.ImagePath + "','" + card.MerchantId + "','" + card.Quantity + "')";
                 MySqlCommand cmd1 = new MySqlCommand(query, conn);
@@ -197,7 +196,7 @@ namespace EcommerceProjectt.Controllers
             MySqlConnection connection = new MySqlConnection(DBConnection.conString);
             string a = Account.Id2;
             connection.Open();
-            string Query = "Select card.Id,card.ImagePath,card.Name,card.Description,card.Quantity,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where '" + a + "'=card.MercantId and card.Name='" + SearchString + "'";
+            string Query = $"Select card.Id,card.ImagePath,card.Name,card.Description,card.Quantity,card.Price from card inner join merchantcredentials on card.MercantId=merchantcredentials.Email  where '{a}'=card.MercantId and (card.Id LIKE '%{SearchString}%' OR card.Name LIKE '%{SearchString}%' OR card.Description LIKE '%{SearchString}%' OR card.Price LIKE '%{SearchString}%')";
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = Query;
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -214,6 +213,7 @@ namespace EcommerceProjectt.Controllers
             }
             connection.Close();
         }
+      
 
         private void fetchData()
         {
@@ -249,7 +249,32 @@ namespace EcommerceProjectt.Controllers
             fetchClientData();
             return View(cards);
         }
-
+        public void Clientsearch(string SearchString)
+        {
+            if (cards.Count > 0)
+            {
+                cards.Clear();
+            }
+            MySqlConnection connection = new MySqlConnection(DBConnection.conString);
+            string a = Account.Id2;
+            connection.Open();
+            string Query = $"SELECT * FROM card WHERE Id LIKE '%{SearchString}%' OR Name LIKE '%{SearchString}%' OR Description LIKE '%{SearchString}%' OR Price LIKE '%{SearchString}%'";
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = Query;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Card card = new Card();
+                card.Id = reader.GetInt32("Id");
+                card.Name = reader.GetString("Name");
+                card.Description = reader.GetString("Description");
+                card.Price = reader.GetInt32("Price");
+                card.Quantity = reader.GetInt32("Quantity");
+                card.ImagePath = reader.GetString("ImagePath");
+                cards.Add(card);
+            }
+            connection.Close();
+        }
         public void fetchClientData()
         {
             if (cards.Count > 0)
@@ -277,10 +302,18 @@ namespace EcommerceProjectt.Controllers
             conn.Close();
 
         }
-        public ActionResult AllProducts()
+        public ActionResult AllProducts(string SearchString = "")
         {
-            FetchallProducts();
-            return View(cards);
+            if (SearchString == " " || SearchString == "  " || SearchString == "   " || SearchString == "" || SearchString == null)
+            {
+                FetchallProducts();
+                return View(cards);
+            }
+            else
+            {
+                Clientsearch(SearchString);
+                return View(cards);
+            }
         }
 
         public void FetchallProducts()
@@ -343,6 +376,7 @@ namespace EcommerceProjectt.Controllers
         public static int OOId;
         public static string RMId;
         public static int PPRC;
+        public static int PPRCC;
         public static int QQT;
         public ActionResult Order(int OId)
         {
@@ -368,6 +402,7 @@ namespace EcommerceProjectt.Controllers
                 card.Quantity = reader.GetInt32("Quantity");
                 QQT = card.Quantity;
                 card.Price = reader.GetInt32("Price");
+                PPRCC= card.Price;
                 card.ImagePath = reader.GetString("ImagePath");
                 RMId = reader.GetString("MercantId");
                 cards.Add(card);
@@ -432,6 +467,36 @@ namespace EcommerceProjectt.Controllers
                 ModelState.Clear();
             }
             conn.Close();
+
+            int q= PPRC / PPRCC;
+            int qa = QQT - q;
+            MySqlConnection conn2 = new MySqlConnection(DBConnection.conString);
+            conn2.Open();
+            buy.CreId = Account.Id3;
+            string query2 = "UPDATE card set Quantity='"+qa+"' where Id='"+ OOId + "'";
+            MySqlCommand cmd2 = new MySqlCommand(query2, conn2);
+            try
+            {
+
+                if (cmd2.ExecuteNonQuery() == 1)
+                {
+                    conn2.Close();
+                }
+                else
+                {
+                    conn2.Close();
+                    ViewBag.Error2 = "Your Order is not placed... ";
+                    ModelState.Clear();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                ViewBag.Error3 = "Please Fill valid values3333333333" + ex;
+                ModelState.Clear();
+            }
+            conn.Close();
            
 
             return View();
@@ -445,32 +510,34 @@ namespace EcommerceProjectt.Controllers
         [HttpPost]
         public ActionResult InstallementPlan(BuyNow buy)
         {
+            int q = PPRC / PPRCC;
+            int qa = QQT - q;
+
             MySqlConnection conn = new MySqlConnection(DBConnection.conString);
             conn.Open();
             buy.CreId = Account.Id3;
-            string query = "INSERT INTO installment VALUES('" + buy.Id + "','" + buy.Fname + "','" + buy.Lname + "',+'" + buy.Address + "','" + buy.City + "','" + buy.State + "','" + buy.PostalCode + "','" + buy.Country + "','" + OOId + "','" + buy.CreId + "','" + RMId + "','" + buy.intallments + "','" + buy.totalinstall + "',Canceled,false)";
+            string query = "INSERT INTO installment VALUES('" + buy.Id + "','" + buy.Fname + "','" + buy.Lname + "',+'" + buy.Address + "','" + buy.City + "','" + buy.State + "','" + buy.PostalCode + "','" + buy.Country + "','"+qa+"','" + OOId + "','" + buy.CreId + "','" + RMId + "','" + buy.intallments + "','" + buy.totalinstall + "','Canceled','false')";
             MySqlCommand cmd1 = new MySqlCommand(query, conn);
             try
             {
-                Response.Write("<script>alert(' try                    adf Your Placed an order Successfully...');</script>");
 
                 if (cmd1.ExecuteNonQuery() == 1)
                 {
-                    Response.Write("<script>alert('Your Placed an order Successfully...');</script>");
+                    Response.Write("<script>alert('Your Placed an Installment Successfully...');</script>");
                     conn.Close();
                     return RedirectToAction("GetAllClientCard", "Card");
                 }
                 else
                 {
                     conn.Close();
-                    ViewBag.Error2 = "Your Order is not placed... ";
+                    Response.Write("<script>alert('Installemnt not placed');</script>");
                     ModelState.Clear();
 
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                ViewBag.Error3 = "Please Fill valid values3333333333" + ex;
+                Response.Write("<script>alert('An unexpected Error Occurs.');</script>");
                 ModelState.Clear();
             }
             return View();
@@ -506,6 +573,8 @@ namespace EcommerceProjectt.Controllers
             return View(buys);
         }
         public static int InsId;
+        public static int CAINID;
+        public static int CAInQ;
         public ActionResult AllInstallmets()
         {
             string can = "false";
@@ -516,7 +585,7 @@ namespace EcommerceProjectt.Controllers
             }
             MySqlConnection conn = new MySqlConnection(DBConnection.conString);
             conn.Open();
-            string Query = "Select card.ImagePath,card.Name,card.Price,installment.Id,installment.Fname,installment.Address,installment.PostalCode,installment.NoOfInstallments,installment.PerInstallment from installment inner join card on installment.CardId=card.Id where '" + a + "'=installment.MerId and Cancel='"+can+"'  ";
+            string Query = "Select card.ImagePath,card.Name,card.Price,installment.Id,installment.Fname,installment.CardId,installment.RemainingQty,installment.Address,installment.PostalCode,installment.NoOfInstallments,installment.PerInstallment from installment inner join card on installment.CardId=card.Id where '" + a + "'=installment.MerId and Cancel='"+can+"'  ";
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = Query;
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -533,6 +602,8 @@ namespace EcommerceProjectt.Controllers
                 buy.PriceOfProduct = reader.GetString("Price");
                 buy.intallments = reader.GetInt32("NoOfInstallments");
                 buy.totalinstall = reader.GetInt32("PerInstallment");
+                CAINID = reader.GetInt32("CardId");
+                CAInQ = reader.GetInt32("RemainingQty");
                 buys.Add(buy);
             }
             conn.Close();
@@ -559,7 +630,7 @@ namespace EcommerceProjectt.Controllers
                 }
                 else
                 {
-                    conn.Close();
+                    conn.Close(); 
                     ViewBag.Error2 = "Error";
                     ModelState.Clear();
 
@@ -603,11 +674,37 @@ namespace EcommerceProjectt.Controllers
                 ModelState.Clear();
             }
 
+            MySqlConnection conn2 = new MySqlConnection(DBConnection.conString);
+            conn2.Open();
+            string query2 = "UPDATE card set Quantity='" + CAInQ + "' where Id='" + CAINID + "'";
+            MySqlCommand cmd2 = new MySqlCommand(query2, conn2);
+            try
+            {
+
+                if (cmd2.ExecuteNonQuery() == 1)
+                {
+                    conn2.Close();
+                }
+                else
+                {
+                    conn2.Close();
+      
+                    ModelState.Clear();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                ModelState.Clear();
+            }
+            conn.Close();
+
             return RedirectToAction("AllInstallmets", "Card");
         }
         public ActionResult InstallmentResponce()
         {
-            string can = "false";
+            /*string can = "false";*/
             int a = Account.Id3;
             if (buys.Count > 0)
             {

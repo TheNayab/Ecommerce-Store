@@ -2,51 +2,73 @@
 @{
     ViewBag.Title = "InstallementPlan";
     Layout = "~/Views/_LayoutPage5.cshtml";
-    Layout = "~/Views/_LayoutPage2.cshtml";
 
 }
 <div class="header">
-    <img src="~/img/logoo.png" class="logo">
+    <nav class="navbar fixed-top navbar-expand-lg  navbar-dark ">
+        <div class="container-fluid">
+            <img src="~/img/logoo.png" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " id="home" href="GetAllClientCard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link active " id="productss" href="AllProducts">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " id="instres" href="InstallmentResponce">Installment-Response</a>
+                    </li>
 
-    <nav>
-        <ul>
-            <li><a href="GetAllClientCard">Home</a></li>
-            <li><a href="AllProducts">Products</a></li>
-            <li><a href="InstallmentResponce">Installment-Response</a></li>
-        </ul>
+                </ul>
+
+                <div class="logout">
+                    <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
+                </div>
+            </div>
+        </div>
     </nav>
-    <button class="btn" id="btn1">Log In</button>
-    <button class="btn" id="btn2">Sign Up</button>
 </div>
-
-<div class="main">
+<div class="mainn">
+    <div class="byn">
+        <img src="~/img/Refund.gif" />
+    </div>
     <div class="middle">
+
         <form action="InstallementPlan" method="post">
-            <div class="mb-3">
+            <div class="lbl">
                 <label class="form-label">First Name</label>
                 <input type="text" name="Fname" class="form-control" required="">
             </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <label class="form-label">Last Name</label>
                 <input type="text" name="Lname" class="form-control" required="">
             </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                 <textarea class="form-control" name="Address" required="" id="exampleFormControlTextarea1" rows="4"></textarea>
             </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <label class="form-label">City</label>
                 <input type="text" name="City" class="form-control" required="">
             </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <label class="form-label">State or Province</label>
                 <input type="text" name="State" class="form-control" required="">
             </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <label class="form-label">PostalCode</label>
                 <input type="number" name="PostalCode" class="form-control" required="">
             </div>
-            <div class="div">
+            <div class="lbl">
+                <label class="form-label">Total Installments</label>
+                <input type="number" name="intallments" class="form-control" id="takeinstall" required="" onchange="Changedd()">
+            </div>
+
+            <div class="coun">
                 <select id="Select2" name="Country" class="form-control">
                     <option value="Select">Country...</option>
                     <option value="Afghanistan">Afghanistan</option>
@@ -295,18 +317,14 @@
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Total Installments</label>
-                <input type="number" name="intallments" class="form-control" id="takeinstall" required="" onchange="Changedd()">
-            </div>
-            <div class="mb-3">
+            <div class="lbl">
                 <input value="@EcommerceProjectt.Controllers.CardController.PPRC" id="refre" />
                 <p>
                     You have
-                    <input value="0" id="yourinstall" readonly="" /> Total Installments so you will pay <input name="totalinstall" value="@EcommerceProjectt.Controllers.CardController.PPRC"" id="totpr" readonly="" />  on the @DateTime.Now.Day of every month starting from @DateTime.Now
+                    <input value="0" id="yourinstall" readonly="" /> Total Installments so you will pay <input name="totalinstall" value="@EcommerceProjectt.Controllers.CardController.PPRC" " id="totpr" readonly="" />  on the @DateTime.Now.Day of every month starting from @DateTime.Now
                 </p>
             </div>
-            <button type="submit" class="btnn btn-success">Submit</button>
+            <button type="submit" class="btnn ">Submit</button>
 
         </form>
     </div>

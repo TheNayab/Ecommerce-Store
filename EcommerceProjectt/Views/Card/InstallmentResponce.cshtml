@@ -1,35 +1,52 @@
 ﻿
 @{
     ViewBag.Title = "InstallmentResponce";
-    Layout = "~/Views/_LayoutPage2.cshtml";
+    Layout = "~/Views/_LayoutPage6.cshtml";
     string[] TableHeader = new string[]
 {
         "Image",
         "Product",
         "Price",
-        "Name",
-        "Address",
-        "PostalCode",
         "Total Installments",
         "PerInstallment",
         "Responce"
-                                   };
+                                           };
 }
 
 <div class="header">
-    <img src="~/img/logoo.png" class="logo">
-    <nav>
-        <ul>
-            <li><a href="GetAllClientCard">Home</a></li>
-            <li><a href="AllProducts">Products</a></li>
-            <li><a href="InstallmentResponce">Installment-Response</a></li>
-        </ul>
-    </nav>
-    <button class="btn" id="btn1">Log In</button>
-    <button class="btn" id="btn2">Sign Up</button>
-</div>
+    <nav class="navbar fixed-top navbar-expand-lg  navbar-dark ">
+        <div class="container-fluid">
+            <img src="~/img/logoo.png" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " id="home" href="GetAllClientCard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link active " id="productss" href="AllProducts">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " id="instres" href="InstallmentResponce">Installment-Response</a>
+                    </li>
 
-<div class="main2">
+                </ul>
+
+                <div class="logout">
+                    <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<h2 class="Productheading">
+
+   Your All Installments
+</h2>
+
+<div class="imag">
     <table>
         <tr>
             @{
@@ -48,18 +65,18 @@
                 {
                     <tr>
                         <td class="picture">   <img src="@Url.Content(Data.Img)" height="100vh" width="80%" alt="" /> </td>
-                        <td>@Data.NameOfProduct</td>
-                        <td>@Data.PriceOfProduct</td>
-                        <td class="quantity">@Data.Fname</td>
-                        <td class="quantity">@Data.Address</td>
-                        <td class="quantity">@Data.PostalCode</td>
-                        <td class="quantity">@Data.intallments</td>
-                        <td class="quantity">@Data.totalinstall</td>
+                        <td class="namee">@Data.NameOfProduct</td>
+                        <td class="price">@Data.PriceOfProduct</td>
+                        <td class="total">@Data.intallments</td>
+                        <td class="ins">@Data.totalinstall</td>
                         <td> your Application for Installment is <b> <input class="dfd" readonly="" placeholder="Reply Soon " value="@Data.Confirm" /> </b> </td>
                     </tr>
                 }
             }
         }
     </table>
+    <div class="delivery">
+        <img src="~/img/Personal finance.gif" />
+    </div>
 </div>
 <script type="text/javascript" src="~/js/main2.js"></script>

@@ -197,11 +197,22 @@
     <Content Include="img\avatar.svg" />
     <Content Include="img\bg.png" />
     <Content Include="img\bg.svg" />
+    <Content Include="img\Credit Card Payment.gif" />
+    <Content Include="img\Delivery %281%29.gif" />
+    <Content Include="img\Delivery.gif" />
+    <Content Include="img\Delivery2.gif" />
+    <Content Include="img\Discount.gif" />
     <Content Include="img\download %281%29.jfif" />
     <Content Include="img\logo.png" />
     <Content Include="img\logoo.png" />
+    <Content Include="img\Online shopping-rafiki.png" />
     <Content Include="img\Online shopping.gif" />
+    <Content Include="img\Order ride %281%29.gif" />
     <Content Include="img\pepsi.png" />
+    <Content Include="img\Personal finance.gif" />
+    <Content Include="img\Refund.gif" />
+    <Content Include="img\Responsive.gif" />
+    <Content Include="img\Shopping bag.gif" />
     <Content Include="img\wave.png" />
     <Content Include="js\main.js" />
     <Content Include="js\main2.js" />
@@ -210,6 +221,8 @@
     <Content Include="Styles\css\StyleSheet3.css" />
     <Content Include="Styles\css\StyleSheet4.css" />
     <Content Include="Styles\css\StyleSheet5.css" />
+    <Content Include="Styles\css\StyleSheet6.css" />
+    <Content Include="Styles\css\StyleSheet7.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +263,8 @@
     <Content Include="Views\_LayoutPage5.cshtml" />
     <Content Include="Views\Card\AllInstallmets.cshtml" />
     <Content Include="Views\Card\InstallmentResponce.cshtml" />
+    <Content Include="Views\_LayoutPage6.cshtml" />
+    <Content Include="Views\_LayoutPage7.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

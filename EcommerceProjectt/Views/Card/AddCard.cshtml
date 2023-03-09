@@ -1,33 +1,37 @@
 ﻿
 @{
     ViewBag.Title = "AddItems";
-    Layout = "~/Views/_LayoutPage2.cshtml";
+    Layout = "~/Views/_LayoutPage7.cshtml";
 
 }
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-success ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">ECOMMERCE_STORE</a>
+        <img src="~/img/logoo.png" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='"+Url.Action("GetAllCard","Card")+"'")">All-Items</a>
+                    <a class="nav-link active" id="home" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("GetAllCard", "Card") + "'")">All-Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='"+Url.Action("AddCard","Card")+"'")">Add-Items</a>
+                    <a class="nav-link active" id="productss" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AddCard", "Card") + "'")">Add-Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
+                    <a class="nav-link active" id="instres" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllInstallmets", "Card") + "'")">All-Installmets</a>
+                    <a class="nav-link active" id="instres" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllInstallmets", "Card") + "'")">All-Installmets</a>
                 </li>
             </ul>
+            <div class="logout">
+                <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
+
+            </div>
         </div>
     </div>
 </nav>
@@ -39,31 +43,31 @@
 
 @using (Html.BeginForm("AddCard", "Card", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="main">
-        <div class="middle">
-            <form>
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" name="Name" class="form-control" required="">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                    <textarea class="form-control" name="Description" required="" id="exampleFormControlTextarea1" rows="4"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Price</label>
-                    <input type="number" name="Price" required="" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Quantity</label>
-                    <input type="number" name="Quantity" required="" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="file" name="ImagePath" required="" class="form-control">
-                </div>
-                <button type="submit" class="btnn btn-success">Submit</button>
+   <div class="main">
+       <div class="middle">
+           <form>
+               <div class="mb-3">
+                   <label class="form-label">Name</label>
+                   <input type="text" name="Name" class="form-control" required="">
+               </div>
+               <div class="mb-3">
+                   <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                   <textarea class="form-control" name="Description" required="" id="exampleFormControlTextarea1" rows="4"></textarea>
+               </div>
+               <div class="mb-3">
+                   <label class="form-label">Price</label>
+                   <input type="number" name="Price" required="" class="form-control">
+               </div>
+               <div class="mb-3">
+                   <label class="form-label">Quantity</label>
+                   <input type="number" name="Quantity" required="" class="form-control">
+               </div>
+               <div class="mb-3">
+                   <input type="file" name="ImagePath" required="" class="form-control">
+               </div>
+               <button type="submit" class="btnn btn-success">Submit</button>
 
-            </form>
-        </div>
-    </div>
+           </form>
+       </div>
+   </div>
 }

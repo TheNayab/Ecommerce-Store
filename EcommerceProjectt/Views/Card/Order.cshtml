@@ -5,24 +5,44 @@
 
 }
 <div class="header">
-    <img src="~/img/logoo.png" class="logo">
+    <nav class="navbar fixed-top navbar-expand-lg  navbar-dark ">
+        <div class="container-fluid">
+            <img src="~/img/logoo.png" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " id="home" href="GetAllClientCard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" nav-link active " id="productss" href="AllProducts">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " id="instres" href="InstallmentResponce">Installment-Response</a>
+                    </li>
 
-    <nav>
-        <ul>
-            <li><a href="GetAllClientCard">Home</a></li>
-            <li><a href="AllProducts">Products</a></li>
-            <li><a href="InstallmentResponce">Installment-Response</a></li>
-        </ul>
+                </ul>
+
+                <div class="logout">
+                    <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
+                </div>
+            </div>
+        </div>
     </nav>
-    <button class="btn" id="btn1">Log In</button>
-    <button class="btn" id="btn2">Sign Up</button>
 </div>
 
+<h2 class="Productheading">
+
+    Place Your Order
+</h2>
+
 <div class="main2">
-   
+
 
     <table>
-        <form action="Order" method="post">
+        <form action="Order" method="post" >
             @{
                 if (Model != null)
                 {
@@ -31,20 +51,20 @@
                     <tr>
                         <td class="picture">   <img src="@Url.Content(Data.ImagePath)" height="100vh" width="80%" alt="" /> </td>
                         <td class="namee" name="Name">@Data.Name</td>
-                        <td>@Data.Description</td>
+                        <td class="descriptionss">@Data.Description</td>
                         <td class="quantity" name="Price">Price: @Data.Price</td>
                     </tr>
                     <tr>
                         <td class="picture">   </td>
-                        <td></td>
-                        <td></td>
-                        <td>
+                        <td class="namee"></td>
+                        <td class="descriptionss"></td>
+                        <td class="quantity" >
                             <input id="qtyshow" value=" @Data.Quantity" hidden="" />
                             <div class="maini">
                                 <p class="qqty">Quantity: </p>
                                 <div class="Contain">
                                     <a id="minus" onclick="Sub()">-</a>
-                                    <input id="where" name="where" type="text" readonly="" value="1" />
+                                    <input id="where" name="where" type="text" readonly="" value="0" />
                                     <a id="plus" onclick="Add()">+</a>
 
                                 </div>
@@ -53,9 +73,9 @@
                     </tr>
                     <tr>
                         <td class="picture">   </td>
-                        <td></td>
-                        <td></td>
-                        <td>
+                        <td class="namee"></td>
+                        <td class="descriptionss"></td>
+                        <td class="quantity">
                             <div class=" tot">
                                 <input id="price" value="@Data.Price" hidden="" />
                                 <p class="total"> Total: </p>
@@ -65,12 +85,12 @@
                     </tr>
                     <tr>
                         <td class="picture">   </td>
-                        <td></td>
-                        <td></td>
-                        <td class="btns">
+                        <td class="namee"></td>
+                        <td class="descriptionss"></td>
+                        <td class="btns ">
                             @*                            <a href="BuyNow" type="submit" name="PayNow" class="payNow">Pay Now</a>
                             *@
-                            <input type="submit" name="PayNow" class="Installment" value="Pay Now">
+                            <input type="submit" name="PayNow" class="payNow" value="Pay Now">
                             <input type="submit" class="Installment" value="Apply for Installment">
 
                         </td>
@@ -81,6 +101,8 @@
             </form>
 
         </table>
-
-</div>
-<script type="text/javascript" src="~/js/main2.js"></script>
+        <div class="delivery">
+            <img src="~/img/Delivery (1).gif" />
+        </div>
+    </div>
+    <script type="text/javascript" src="~/js/main2.js"></script>

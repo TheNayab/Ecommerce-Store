@@ -2,17 +2,44 @@
 .middle {
     width: 50%;
     margin: auto;
-    border: 2px solid green;
+    border: 2px solid #48789b;
     border-radius: 10px;
     padding: 2rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+}
+.byn img{
+    height:700px;
+    position:relative;
+    left:4rem;
+    bottom:1rem;
 }
 
-.main {
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mb-3 {
+    margin-bottom: 0px;
 }
+.coun{
+    margin-top:18px;
+}
+.btnn {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    border: 1px solid white;
+    border-radius: 2rem;
+    justify-content: center;
+    height: 2.8rem;
+    align-items: center;
+    background-color: #48789b;
+    color: white;
+}
+
+    .btnn:hover {
+        transition: .5s;
+        width: 53%;
+        height: 3rem;
+    }
 #yourinstall {
     border: none;
     width: 0.9rem;
@@ -25,4 +52,167 @@
     border: none;
     width: 4rem;
     font-weight: bold;
+}
+
+
+.header {
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 3rem;
+}
+
+.navbar {
+    background-color: #48789b;
+    height: 5rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+}
+
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
+
+.dfd {
+    border: none;
+    font-weight: bold;
+}
+
+.delivery img {
+    position: absolute;
+    right: 0;
+    top: 9rem;
+}
+
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 3rem;
+}
+
+.navbar {
+    background-color: #48789b;
+    height: 5rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+}
+
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
+
+#produ {
+    border-radius: 12px;
+}
+
+
+#home {
+    display: flex;
+    width: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #home:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 4rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#productss {
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #productss:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#instres {
+    display: flex;
+    width: 11rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+}
+
+    #instres:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 11rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+
+.btnlogout {
+    height: 2.3rem;
+    width: 5rem;
+    border: 2px solid white;
+    background-color: #48789b;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .btnlogout:hover {
+        transition: .5s;
+        height: 2.5rem;
+        width: 5.3rem;
+        color: #48789b;
+        background-color: white;
+    }  
+
+.logout {
+    border: none;
 }

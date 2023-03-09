@@ -1,0 +1,365 @@
+﻿
+.navbar{
+    z-index:1;
+}
+table {
+    width: 90%;
+    border-radius: 10px;
+    border-top: 2px solid #857e7e;
+    margin-top: 3rem;
+    position: relative;
+    color: black;
+    line-height: 0.9;
+    text-align: center;
+}
+
+.getalladmin{
+    display:flex;
+    justify-content:center;
+}
+    .getalladmin::before {
+        content: "";
+        background-image: url('../../img/Shopping bag.gif');
+        background-repeat:no-repeat;
+        background-size:100vw 100vh;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        height: 100vh;
+        width: 100vw;
+    }
+
+.allorders {
+    display: flex;
+    justify-content: center;
+}
+   .allorders::before {
+        content: "";
+        background-image: url('../../img/Order ride (1).gif');
+        background-repeat: no-repeat;
+        background-size: 90vw 100vh;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        height: 100vh;
+        width: 100vw;
+    }
+.alldis {
+    display: flex;
+    justify-content: center;
+}
+    .alldis::before {
+        content: "";
+        background-image: url('../../img/Discount.gif');
+        background-repeat: no-repeat;
+        background-size: 70vw 100vh;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        height: 100vh;
+        width: 100vw;
+    }
+table tr .picture {
+    width: 8rem;
+}
+
+table tr td {
+    border-top: 2px solid #cbcbd1;
+    height: 3rem;
+    margin-top: 1rem;
+}
+table tr th {
+    height: 3rem;
+    font-size: 1.3rem
+}
+.idd{
+    width:5rem;
+}
+.picture {
+    width: 12rem;
+}
+.namee {
+    width: 8rem;
+}
+.price {
+    width: 7rem;
+}
+.description {
+    width: 25rem;
+}
+.quantity {
+    width: 7rem;
+
+}
+.btnlogout {
+    height: 2.3rem;
+    width: 5rem;
+    border: 2px solid white;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .btnlogout:hover {
+        transition: .5s;
+        height: 2.5rem;
+        width: 5.3rem;
+        color:green;
+        background-color:white;
+    }
+table tr .delete a {
+    text-decoration: none;
+    background-color: tomato;
+    color: white;
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    border-radius: 9px;
+    height: 2.5rem;
+    align-items: center;
+}
+
+    table tr .delete a:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid tomato;
+    }
+
+
+table tr .edit a {
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    border-radius: 9px;
+    height: 2.5rem;
+    align-items: center;
+}
+
+    table tr .edit a:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid blue;
+    }
+
+
+
+.edit {
+    width: 4rem;
+}
+
+.delete {
+    width: 4rem;
+}
+
+.header {
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 3rem;
+}
+
+.navbar {
+    background-color: #198754;
+    height: 5rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+}
+
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
+
+.dfd {
+    border: none;
+    font-weight: bold;
+}
+
+.delivery img {
+    position: absolute;
+    right: 0;
+    top: 9rem;
+}
+
+.logo {
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 3rem;
+}
+
+.navbar {
+    background-color: #48789b;
+    height: 5rem;
+}
+
+.navbar-nav {
+    margin-left: 20rem;
+}
+
+    .navbar-nav .nav-item {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0px 2rem 0px 2rem;
+    }
+
+#produ {
+    border-radius: 12px;
+}
+
+.d-flex {
+    margin-right: 5rem;
+}
+#home {
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+    cursor:pointer;
+}
+.form {
+    height: 2.7rem;
+    border-radius: 0.3rem;
+    border: none;
+    width: 18rem;
+    margin-right: 1rem;
+}
+
+.Productheading {
+    font-size: 3rem;
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+    #home:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#productss {
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+    cursor: pointer;
+}
+
+    #productss:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 6rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+#instres {
+    display: flex;
+    width: 11rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    height: 2rem;
+    cursor: pointer;
+}
+
+    #instres:hover {
+        background-color: white;
+        color: #3b3bbd;
+        border: 2px solid white;
+        display: flex;
+        width: 11rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;
+        height: 2rem;
+    }
+
+
+.middle {
+    width: 50%;
+    margin-left: 5rem;
+    border: 2px solid #198754;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.main {
+    display: flex;
+    height: 95vh;
+    align-items:center;
+    justify-content:center;
+}
+
+.main2 {
+    display: flex;
+    flex-direction: row;
+}
+.btnn {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    border: 1px solid white;
+    border-radius: 2rem;
+    justify-content: center;
+    height: 2.8rem;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: #198754;
+    color: white;
+}
+
+    .btnn:hover {
+        transition: .5s;
+        width: 53%;
+        height: 3rem;
+    }

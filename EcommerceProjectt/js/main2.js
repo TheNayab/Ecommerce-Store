@@ -27,6 +27,9 @@ function Add() {
         document.getElementById("minus").style.border = "0px solid White";
         
     }
+    if (value == 0) {
+        document.getElementById("where").value = 0;
+    }
     else {
         document.getElementById("plus").style.backgroundColor = 'White';
         document.getElementById("plus").style.color = 'Black';

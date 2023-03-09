@@ -4,51 +4,75 @@
     Layout = "~/Views/_LayoutPage3.cshtml";
 
 }
-<div class="header">
-    <img src="~/img/logoo.png" class="logo">
 
-    <nav>
-        <ul>
-                <li><a href="GetAllClientCard">Home</a></li>
-                <li><a href="AllProducts">Products</a></li>
-                <li><a href="InstallmentResponce">Installment-Response</a></li>
-        </ul>
-    </nav>
-    <button class="btn" id="btn1">Log In</button>
-    <button class="btn" id="btn2">Sign Up</button>
-</div>
+<div class="ok">
+    <div class="header">
+        <nav class="navbar fixed-top navbar-expand-lg  navbar-dark ">
+            <div class="container-fluid">
+                <img src="~/img/logoo.png" class="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active " id="home" href="GetAllClientCard">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link active " id="productss" href="AllProducts">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " id="instres" href="InstallmentResponce">Installment-Response</a>
+                        </li>
 
-
-
-
-<ul class="cards">
-
-    @{
-        if (Model != null)
-        {
-            foreach (var Data in Model)
-            {
-
-        <li>
-            <a href="ProductDetail?PId=@Data.Id" name="PId" class="card">
-                <img src="@Url.Content(Data.ImagePath)" class="card__image" alt="" />
-                <div class="card__overlay">
-                    <div class="card__header">
-                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-                        <div class="card__header-text">
-                            <h3 class="card__title">@Data.Name</h3>
-                            <b>
-                                <h3 class="card__Price">Price: $@Data.Price</h3>
-                            </b>
-                        </div>
+                    </ul>
+                    <form action="AllProducts" method="post" class="d-flex">
+                        <input class="form-control me-2" type="search" name="SearchString" placeholder="Search" aria-label="Search">
+                        <button id="btn" class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                    <div class="logout">
+                        <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
                     </div>
-                    <p class="card__description">@Data.Description</p>
                 </div>
-            </a>
-        </li>
+            </div>
+        </nav>
+    </div>
+
+
+    <h2 class="Productheading">
+
+        Products
+    </h2>
+
+    <ul class="cards">
+
+        @{
+            if (Model != null)
+            {
+                foreach (var Data in Model)
+                {
+
+                    <li>
+                        <a href="ProductDetail?PId=@Data.Id" name="PId" class="card" id="produ">
+                            <img src="@Url.Content(Data.ImagePath)" class="card__image" alt="" />
+                            <div class="card__overlay">
+                                <div class="card__header">
+                                    <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                                    <div class="card__header-text">
+                                        <h3 class="card__title">@Data.Name</h3>
+                                        <b>
+                                            <h3 class="card__Price">Rs: @Data.Price</h3>
+                                        </b>
+                                    </div>
+                                </div>
+                                <p class="card__description">@Data.Description</p>
+                            </div>
+                        </a>
+                    </li>
+                }
+
             }
-
         }
-    }
 
-</ul>
+    </ul>
+</div>

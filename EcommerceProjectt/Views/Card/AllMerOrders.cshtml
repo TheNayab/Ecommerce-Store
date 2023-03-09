@@ -1,53 +1,52 @@
 ﻿@{
     ViewBag.Title = "AllMerOrders";
 
-    Layout = "~/Views/_LayoutPage2.cshtml";
+    Layout = "~/Views/_LayoutPage7.cshtml";
     string[] TableHeader = new string[]
     {
         "Image",
         "Product",
         "Price",
-        "Name",
+        "Client-Name",
         "Address",
         "City",
         "State",
-                    };
+                                    };
 }
-<h2>AllMerOrders</h2>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-success ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">ECOMMERCE_STORE</a>
+        <img src="~/img/logoo.png" class="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("GetAllCard", "Card") + "'")">All-Items</a>
+                    <a class="nav-link active" id="home" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("GetAllCard", "Card") + "'")">All-Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AddCard", "Card") + "'")">Add-Items</a>
+                    <a class="nav-link active" id="productss" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AddCard", "Card") + "'")">Add-Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
+                    <a class="nav-link active" id="instres" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllMerOrders", "Card") + "'")">All-Orders</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link active" id="instres" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("AllInstallmets", "Card") + "'")">All-Installmets</a>
+                </li>
             </ul>
-            <form action="GetAllCard" method="post" class="d-flex">
-                <input class="form-control me-2" type="search" name="SearchString" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
             <div class="logout">
-
-                <a class="btn btn-danger active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Will design</a>
-
+                <a class="btnlogout  active" aria-current="page" id="redirect" onclick="@("window.location.href='" + Url.Action("login", "Account") + "'")">Logout</a>
             </div>
         </div>
     </div>
 </nav>
+<h2 class="Productheading">
 
-<div class="main2">
+    All Orders
+</h2>
+
+<div class="allorders">
     <table>
         <tr>
             @{
@@ -66,10 +65,10 @@
                 {
                     <tr>
                         <td class="picture">   <img src="@Url.Content(Data.Img)" height="100vh" width="80%" alt="" /> </td>
-                        <td>@Data.NameOfProduct</td>
-                        <td>@Data.PriceOfProduct</td>
-                        <td class="quantity">@Data.Fname</td>
-                        <td class="quantity">@Data.Address</td>
+                        <td class="namee">@Data.NameOfProduct</td>
+                        <td class="price">@Data.PriceOfProduct</td>
+                        <td class="namee">@Data.Fname</td>
+                        <td class="description">@Data.Address</td>
                         <td class="quantity">@Data.City</td>
                         <td class="quantity">@Data.State</td>
                     </tr>

@@ -17,9 +17,13 @@ html, body {
     padding: 4rem;
     border-radius: 1.4rem;
     background-color: #f0f6fd;
-}.containerr:hover {
-   box-shadow:5px 10px 10px 5px #ccc;
 }
+    .containerr:hover {
+        transition: .5s ease-in-out;
+        box-shadow: 5px 10px 10px 5px #ccc;
+        max-width: 1300px;
+        height: 36.5rem;
+    }
 /* Columns */
 .left-column {
     width: 65%;
